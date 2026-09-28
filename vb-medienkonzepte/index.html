@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virgil Pietrar · Coaching für Gebäudereiniger | VB Medienkonzepte</title>
+<meta name="description" content="Coaching für Inhaber von Gebäudereinigungen: mehr Gewinn, ein starkes Team und klare Strukturen. Direkt online buchen und bezahlen.">
+<!-- Designentwurf / Demo: nicht indexieren -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1A1D; --ink-2:#132629; --ink-3:#1D363A;
+  --paper:#F4F2EC; --card:#FFFFFF; --line:#E3DFD4; --line-dark:rgba(255,255,255,.12);
+  --text:#0C1A1D; --muted:#56666A; --muted-dark:#A7B6B4;
+  --lime:#D6F36A; --lime-2:#C6E854; --teal:#0E6E68; --sand:#E9E1CF;
+  --radius:22px; --radius-sm:14px;
+  --shadow:0 24px 60px -28px rgba(12,26,29,.35);
+  --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.025em}
+p{margin:0}
+.container{width:min(1180px,100% - 32px);margin-inline:auto}
+.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.45em;border-radius:999px;border:1px solid transparent;font-weight:700;font-size:.98rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--lime-2);outline-offset:3px}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-lime:hover{background:#E2FA85;box-shadow:0 12px 30px -12px rgba(214,243,106,.7)}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:#fff;background:transparent}
+.btn-ghost:hover{border-color:#fff}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--ink-3)}
+.btn-outline{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--ink)}
+.btn-block{width:100%;white-space:normal;text-align:center}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ---------- Demo bar + Header ---------- */
+.demo-bar{background:var(--lime);color:var(--ink);font-size:.8rem;font-weight:600;text-align:center;padding:.45em 16px}
+.header{position:sticky;top:0;z-index:50;background:rgba(12,26,29,.86);backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);color:#fff;border-bottom:1px solid transparent;transition:border-color .3s}
+.header.scrolled{border-bottom-color:var(--line-dark)}
+.header-inner{display:flex;align-items:center;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:.9rem;letter-spacing:-.02em}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-text strong{font-size:1rem}
+.brand-text span{font-size:.72rem;color:var(--muted-dark);letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;gap:28px}
+.nav a{text-decoration:none;font-size:.93rem;font-weight:500;color:#DCE5E3;transition:color .2s}
+.nav a:hover{color:var(--lime)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-btn{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:transparent;border:1px solid var(--line-dark);cursor:pointer;transition:border-color .2s}
+.icon-btn:hover{border-color:#fff}
+.badge{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--lime);color:var(--ink);font-size:.72rem;font-weight:800;display:grid;place-items:center}
+.menu-btn{display:none}
+.header .btn{padding:.75em 1.2em;font-size:.9rem}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding-top:clamp(40px,7vw,88px)}
+.hero::before{content:"";position:absolute;width:760px;height:760px;right:-220px;top:-260px;background:radial-gradient(closest-side,rgba(214,243,106,.18),transparent);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--line-dark) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 30% 30%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 10%,transparent 70%);opacity:.35;pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(32px,5vw,72px);align-items:end}
+.hero-copy{padding-bottom:clamp(40px,6vw,88px)}
+.pill{display:inline-flex;align-items:center;gap:.6em;padding:.45em .95em;border-radius:999px;border:1px solid var(--line-dark);background:rgba(255,255,255,.04);font-size:.84rem;font-weight:600;color:#DCE5E3}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(214,243,106,.18)}
+.hero h1{font-size:clamp(2.5rem,6.2vw,4.7rem);line-height:1.02;letter-spacing:-.035em;margin:22px 0 24px}
+.hero h1 em,.section-dark h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime);letter-spacing:-.01em}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:#C5D2D0;max-width:36em}
+.lead strong{color:#fff;font-weight:600}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-checks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:.88rem;color:var(--muted-dark)}
+.hero-checks span{display:inline-flex;align-items:center;gap:.5em}
+.hero-checks .i{color:var(--lime)}
+
+.portrait{position:relative;align-self:end}
+.portrait-frame{position:relative;aspect-ratio:4/5;border-radius:28px 28px 0 0;overflow:hidden;background:var(--ink-3);border:1px solid var(--line-dark);border-bottom:0}
+.portrait-frame svg{width:100%;height:100%}
+.portrait-note{position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:center}
+.portrait-note span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#8FA3A1;border:1px dashed rgba(255,255,255,.22);border-radius:999px;padding:.35em .9em;background:rgba(12,26,29,.4)}
+.portrait-name{position:absolute;left:18px;right:18px;bottom:18px;padding:16px 18px;border-radius:18px;background:rgba(12,26,29,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-dark)}
+.portrait-name strong{display:block;font-size:1.05rem}
+.portrait-name span{font-size:.85rem;color:var(--muted-dark)}
+.float-card{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;background:#fff;color:var(--ink);box-shadow:var(--shadow);font-size:.85rem;line-height:1.3;animation:float 6s ease-in-out infinite}
+.float-card b{display:block;font-size:1rem}
+.float-card .ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--lime);flex:none}
+.float-card.fc-1{top:14%;left:-38px}
+.float-card.fc-2{top:44%;right:-24px;animation-delay:-3s;cursor:pointer;border:0;text-align:left}
+.float-card.fc-2 .ico{background:var(--ink);color:var(--lime)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.stats{position:relative;z-index:1;border-top:1px solid var(--line-dark);background:var(--ink-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:28px 24px;border-left:1px solid var(--line-dark)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:clamp(1.6rem,2.6vw,2.1rem);letter-spacing:-.03em;color:var(--lime);line-height:1.1}
+.stat span{display:block;margin-top:6px;font-size:.88rem;color:var(--muted-dark);max-width:18em}
+
+/* ---------- Sections ---------- */
+.section{padding:clamp(72px,10vw,128px) 0}
+.section-dark{background:var(--ink);color:#fff}
+.eyebrow{display:inline-block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:16px}
+.section-dark .eyebrow{color:var(--lime)}
+h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.06;letter-spacing:-.03em}
+h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--teal);letter-spacing:-.01em}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(40px,5vw,64px);flex-wrap:wrap}
+.section-head h2{max-width:13em}
+.section-head p{max-width:26em;color:var(--muted);font-size:1.05rem}
+.section-dark .section-head p{color:var(--muted-dark)}
+
+/* Pain points */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.pain:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.pain .num{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--teal);line-height:1}
+.pain h3{font-size:1.22rem;margin:18px 0 8px;letter-spacing:-.02em}
+.pain p{color:var(--muted);font-size:.96rem}
+.bridge{margin-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--radius);background:var(--sand)}
+.bridge p{font-size:1.15rem;font-weight:600;flex:1;min-width:240px}
+.bridge p em{font-family:var(--serif);font-weight:400;font-size:1.3em;color:var(--teal)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:start}
+.about-copy p{color:var(--muted);font-size:1.08rem;margin-top:20px}
+.about-copy p:first-of-type{margin-top:28px}
+.signature{margin-top:32px;display:flex;align-items:center;gap:16px}
+.signature .avatar{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-weight:800}
+.signature b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.6rem;line-height:1;display:block}
+.signature span{font-size:.88rem;color:var(--muted)}
+.compare{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.compare-head,.compare-row{display:grid;grid-template-columns:1fr 1fr}
+.compare-head div{padding:16px 22px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.compare-head div:last-child{background:var(--ink);color:var(--lime)}
+.compare-row div{padding:18px 22px;border-top:1px solid var(--line);font-size:.96rem}
+.compare-row div:first-child{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(86,102,106,.45)}
+.compare-row div:last-child{background:var(--ink);color:#fff;border-top-color:var(--line-dark);font-weight:600;display:flex;gap:10px;align-items:flex-start}
+.compare-row .i{color:var(--lime);margin-top:.2em}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px}
+.pillar .ico{width:40px;height:40px;border-radius:12px;background:var(--lime);display:grid;place-items:center;margin-bottom:14px}
+.pillar h4{font-size:1rem;letter-spacing:-.01em}
+.pillar p{font-size:.84rem;color:var(--muted);margin-top:4px;line-height:1.45}
+
+/* Coaching */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.offer{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px}
+.offer.featured{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:var(--shadow)}
+.offer .tag{position:absolute;top:-13px;left:28px;background:var(--lime);color:var(--ink);font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.35em .85em;border-radius:999px}
+.offer h3{font-size:1.35rem}
+.offer .meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:.86rem;color:var(--muted)}
+.offer.featured .meta{color:var(--muted-dark)}
+.offer .meta span{display:inline-flex;align-items:center;gap:.4em}
+.price{margin:26px 0 22px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price b{font-size:2.6rem;letter-spacing:-.04em;line-height:1}
+.price small{font-size:.86rem;color:var(--muted)}
+.offer.featured .price small{color:var(--muted-dark)}
+.offer ul{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:12px;font-size:.95rem}
+.offer li{display:flex;gap:10px;align-items:flex-start}
+.offer li .i{color:var(--teal);margin-top:.2em}
+.offer.featured li .i{color:var(--lime)}
+.offer .btn{margin-top:auto}
+.pay-row{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;color:var(--muted);font-size:.86rem;text-align:center}
+.pay-row .chip{padding:.4em .8em;border-radius:8px;background:var(--card);border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:.78rem}
+.pay-row .lock{display:inline-flex;align-items:center;gap:.4em}
+.demo-hint{margin-top:14px;text-align:center;font-size:.8rem;color:var(--muted)}
+
+/* Academy */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:18px}
+.product{display:flex;flex-direction:column;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);overflow:hidden;transition:transform .25s,border-color .25s}
+.product:hover{transform:translateY(-4px);border-color:rgba(214,243,106,.4)}
+.cover{position:relative;aspect-ratio:4/3;padding:22px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.cover::after{content:"";position:absolute;width:220px;height:220px;right:-70px;bottom:-90px;border-radius:50%;background:rgba(255,255,255,.14)}
+.cover small{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.cover strong{position:relative;z-index:1;font-size:1.3rem;line-height:1.1;letter-spacing:-.02em;max-width:9em}
+.cover .cov-ico{position:absolute;right:20px;top:20px;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(12,26,29,.12)}
+.cov-lime{background:var(--lime);color:var(--ink)}
+.cov-teal{background:#1F7F77;color:#fff}
+.cov-teal .cov-ico{background:rgba(255,255,255,.14)}
+.cov-sand{background:var(--sand);color:var(--ink)}
+.cov-white{background:#F7F7F2;color:var(--ink)}
+.product-body{padding:22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.ptype{font-size:.76rem;color:var(--lime);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.product-body h3{font-size:1.08rem;letter-spacing:-.015em}
+.product-body p{font-size:.88rem;color:var(--muted-dark)}
+.product-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px}
+.product-foot b{font-size:1.3rem;letter-spacing:-.02em}
+.product-foot .btn{padding:.7em 1.1em;font-size:.86rem}
+.product .btn.added{background:transparent;color:var(--lime);border-color:rgba(214,243,106,.5)}
+
+/* Process */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+.step{position:relative;padding:32px 28px 30px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+.step .n{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--lime);font-weight:800;margin-bottom:22px}
+.step h3{font-size:1.5rem}
+.step p{margin-top:10px;color:var(--muted)}
+.step:not(:last-child)::after{content:"";position:absolute;top:55px;right:-19px;width:20px;height:2px;background:var(--ink)}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,88px);align-items:start}
+.faq-grid .section-head{margin-bottom:0}
+.faq-list{border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:700;font-size:1.06rem}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary .plus{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:transform .3s,background .3s}
+.faq-list details[open] summary .plus{transform:rotate(45deg);background:var(--lime);border-color:var(--lime)}
+.faq-list details p{padding:0 50px 22px 0;color:var(--muted)}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;background:var(--lime);border-radius:32px;padding:clamp(40px,7vw,88px) clamp(24px,6vw,80px);display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:end}
+.cta::after{content:"";position:absolute;right:-120px;top:-160px;width:460px;height:460px;border-radius:50%;border:70px solid rgba(12,26,29,.06)}
+.cta h2 em{color:var(--ink)}
+.cta p{margin-top:18px;font-size:1.1rem;max-width:32em;color:#2A3B3E}
+.cta-actions{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px}
+.cta .btn-outline{background:transparent;border-color:rgba(12,26,29,.3)}
+
+/* Footer */
+.footer{background:var(--ink);color:var(--muted-dark);padding:72px 0 32px;margin-top:clamp(72px,10vw,128px);font-size:.92rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.footer a{text-decoration:none;transition:color .2s}
+.footer a:hover{color:var(--lime)}
+.footer .brand{margin-bottom:18px;color:#fff}
+.footer-bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem}
+
+/* ---------- Dialogs (Booking + Cart) ---------- */
+dialog{border:0;padding:0;color:var(--text);background:#fff}
+dialog::backdrop{background:rgba(12,26,29,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal{width:min(660px,100% - 24px);max-width:none;max-height:calc(100dvh - 24px);border-radius:26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.modal[open],.drawer[open]{display:flex;flex-direction:column}
+.modal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:26px 28px 18px}
+.modal-head .eyebrow{margin-bottom:6px}
+.modal-head h3{font-size:1.4rem}
+.modal-head .bk-meta{color:var(--muted);font-size:.9rem;margin-top:4px}
+.close-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;flex:none}
+.close-btn:hover{border-color:var(--ink)}
+.stepper{display:flex;gap:8px;list-style:none;margin:0;padding:0 28px 18px;border-bottom:1px solid var(--line)}
+.stepper li{flex:1;display:flex;flex-direction:column;gap:8px;font-size:.78rem;font-weight:600;color:var(--muted)}
+.stepper li::before{content:"";height:4px;border-radius:4px;background:var(--line)}
+.stepper li.done::before,.stepper li.active::before{background:var(--ink)}
+.stepper li.active{color:var(--ink)}
+.modal-body{padding:22px 28px;overflow-y:auto;flex:1;min-height:0}
+.label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:4px 0 12px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:18px;scrollbar-width:thin}
+.day{flex:none;width:72px;padding:12px 6px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;text-align:center;line-height:1.2;transition:border-color .2s,background .2s}
+.day small{display:block;font-size:.74rem;color:var(--muted);text-transform:uppercase;font-weight:600}
+.day b{display:block;font-size:1.35rem;margin:4px 0 2px}
+.day span{font-size:.74rem;color:var(--muted)}
+.day:hover{border-color:var(--ink)}
+.day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.day[aria-pressed="true"] small,.day[aria-pressed="true"] span{color:var(--lime)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.slot{padding:12px 8px;border-radius:12px;border:1px solid var(--line);background:#fff;font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
+.slot:hover{border-color:var(--ink)}
+.slot[aria-pressed="true"]{background:var(--lime);border-color:var(--lime)}
+.slots-empty{color:var(--muted);font-size:.92rem;grid-column:1/-1}
+.tz{margin-top:14px;font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.4em}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.84rem;font-weight:600}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);font:inherit;font-size:.95rem;background:#FBFAF7;color:var(--text)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);background:#fff;box-shadow:0 0 0 3px rgba(214,243,106,.6)}
+.summary{border:1px solid var(--line);border-radius:16px;padding:6px 18px;margin-bottom:20px}
+.summary-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.summary-row:last-child{border-bottom:0}
+.summary-row span{color:var(--muted)}
+.summary-row b{text-align:right}
+.summary-row.total b{font-size:1.2rem}
+.pay-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pay-opt{position:relative}
+.pay-opt input{position:absolute;opacity:0;pointer-events:none}
+.pay-opt label{display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--line);border-radius:14px;cursor:pointer;font-weight:600;font-size:.92rem;transition:border-color .2s,background .2s}
+.pay-opt label::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex:none;transition:border .2s}
+.pay-opt input:checked+label{border-color:var(--ink);background:#FBFAF7}
+.pay-opt input:checked+label::before{border:6px solid var(--ink)}
+.pay-opt input:focus-visible+label{outline:3px solid var(--lime-2);outline-offset:2px}
+.secure{margin-top:14px;font-size:.82rem;color:var(--muted);display:flex;gap:.5em;align-items:flex-start}
+.modal-foot{display:flex;justify-content:space-between;gap:12px;padding:18px 28px 24px;border-top:1px solid var(--line)}
+.modal-foot .btn{padding:.85em 1.4em}
+#bk-next{margin-left:auto}
+.success{text-align:center;padding:20px 0 8px}
+.success .big-check{width:76px;height:76px;border-radius:50%;background:var(--lime);display:grid;place-items:center;margin:0 auto 22px}
+.success .big-check .i{width:36px;height:36px;stroke-width:2.4}
+.success h3{font-size:1.6rem}
+.success p{color:var(--muted);margin:10px auto 0;max-width:30em}
+.success .summary{text-align:left;margin-top:24px}
+.demo-note{margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--paper);font-size:.8rem;color:var(--muted);text-align:left}
+
+.drawer{margin:0 0 0 auto;width:min(440px,100%);max-width:none;height:100dvh;max-height:100dvh;border-radius:0}
+.drawer .modal-body{display:flex;flex-direction:column}
+.cart-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-thumb{width:54px;height:54px;border-radius:12px;flex:none}
+.cart-item div{flex:1;min-width:0}
+.cart-item b{display:block;font-size:.95rem;line-height:1.3}
+.cart-item span{font-size:.82rem;color:var(--muted)}
+.cart-item .rm{background:none;border:0;color:var(--muted);cursor:pointer;font-size:.82rem;text-decoration:underline;padding:4px}
+.cart-empty{margin:auto;text-align:center;color:var(--muted);padding:40px 0}
+.cart-empty .i{width:44px;height:44px;margin:0 auto 14px;opacity:.5}
+.cart-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.cart-total b{font-size:1.5rem;letter-spacing:-.02em}
+.cart-foot{padding:18px 28px 24px;border-top:1px solid var(--line)}
+.cart-foot small{display:block;color:var(--muted);font-size:.8rem;margin-bottom:16px}
+
+.toast{position:fixed;left:50%;bottom:24px;z-index:100;transform:translate(-50%,calc(100% + 40px));opacity:0;background:var(--ink);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:var(--shadow);font-size:.92rem;font-weight:600;display:flex;align-items:center;gap:10px;transition:transform .35s cubic-bezier(.2,.9,.3,1.2);max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast .i{color:var(--lime)}
+
+.spinner{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(12,26,29,.25);border-top-color:var(--ink);animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Reveal */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1240px){
+  .float-card.fc-2{right:-8px}
+}
+@media (max-width:1020px){
+  .nav{display:none}
+  .menu-btn{display:grid}
+  .nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line-dark);padding:8px 16px 20px}
+  .nav.open a{padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:1.05rem}
+  .offer-grid{grid-template-columns:minmax(0,1fr);max-width:560px;margin-inline:auto}
+  .offer.featured{order:-1}
+  .about-grid,.faq-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{padding-bottom:0}
+  .portrait{max-width:420px;width:100%;margin:0 auto}
+  .float-card.fc-1{left:-8px}
+  .float-card.fc-2{right:-8px}
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{padding:22px 16px}
+  .stat:nth-child(odd){border-left:0;padding-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  .steps-grid{grid-template-columns:1fr}
+  .step:not(:last-child)::after{top:auto;bottom:-19px;right:auto;left:51px;width:2px;height:20px}
+  .cta{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .header .btn-book{display:none}
+  .brand-text span{display:none}
+  .hero-ctas .btn{width:100%}
+  .pillars{grid-template-columns:1fr}
+  .compare-head div,.compare-row div{padding:14px 14px;font-size:.88rem}
+  .form-grid,.pay-options{grid-template-columns:1fr}
+  .modal{width:100%;margin:auto 0 0;border-radius:24px 24px 0 0;max-height:94dvh}
+  .modal-head,.modal-body,.modal-foot,.cart-foot{padding-left:20px;padding-right:20px}
+  .modal-foot .btn{white-space:normal;padding:.85em 1.1em}
+  #bk-next{flex:1}
+  .stepper{padding-left:20px;padding-right:20px}
+  .faq-list details p{padding-right:0}
+  .footer-grid{grid-template-columns:1fr}
+  .float-card{font-size:.78rem;padding:10px 12px}
+  .float-card .ico{width:32px;height:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a2 2 0 002 1.6h7.7a2 2 0 002-1.5L21 8H6.2"/><circle cx="10" cy="20.5" r="1.2"/><circle cx="17" cy="20.5" r="1.2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 018 0v2.5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6.5" width="12.5" height="11" rx="2"/><path d="M15.5 10.5l5-3v9l-5-3z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.5 6.2A7 7 0 1017.5 17.8M4 10.5h9M4 13.5h9"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-3.6 3.2-6 6.5-6s6 2.4 6.5 6M16 4.8a3.5 3.5 0 010 6.4M18 14.4c2 .8 3.2 2.9 3.5 5.6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M4 9h16M4 14.5h16M10 3.5v17"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3.5H7a2 2 0 00-2 2v13a2 2 0 002 2h10a2 2 0 002-2V8.5z"/><path d="M14 3.5v5h5M9 13h6M9 16.5h4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><path d="M4 6.5l1 1 2-2M4 12l1 1 2-2M4 17.5l1 1 2-2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 01-11.7 7.1L4 20l1-4.1A8 8 0 1120 12z"/></symbol>
+</svg>
+
+<div class="demo-bar">Designentwurf · Demo für VB Medienkonzepte — Texte, Preise &amp; Produkte sind Platzhalter</div>
+
+<header class="header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Virgil Pietrar – VB Medienkonzepte, zum Seitenanfang">
+      <span class="brand-mark" aria-hidden="true">VBM</span>
+      <span class="brand-text"><strong>Virgil Pietrar</strong><span>VB Medienkonzepte</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#ueber-mich">Über mich</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#akademie">Akademie</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen">
+        <svg class="i"><use href="#i-cart"/></svg>
+        <span class="badge" id="cartCount" hidden>0</span>
+      </button>
+      <a href="#coaching" class="btn btn-lime btn-book">Termin buchen</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+        <svg class="i"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="pill"><span class="dot"></span>Coaching für Inhaber von Gebäudereinigungen</span>
+      <h1 id="hero-title">Mehr Gewinn. Ein starkes Team. <em>Ein Betrieb, der läuft.</em></h1>
+      <p class="lead">Ich bin <strong>Virgil Pietrar</strong> und führe selbst eine Gebäudereinigung. Im 1:1-Coaching zeige ich dir, wie du richtig kalkulierst, gute Mitarbeiter findest und hältst – und Strukturen aufbaust, damit dein Betrieb auch ohne dich funktioniert.</p>
+      <div class="hero-ctas">
+        <a href="#coaching" class="btn btn-lime">Coaching online buchen <svg class="i"><use href="#i-arrow"/></svg></a>
+        <button class="btn btn-ghost" data-book="erstgespraech">Kostenloses Erstgespräch</button>
+      </div>
+      <div class="hero-checks">
+        <span><svg class="i"><use href="#i-check"/></svg>Termin direkt online wählen</span>
+        <span><svg class="i"><use href="#i-check"/></svg>Sicher bezahlen per Karte, PayPal &amp; Co.</span>
+      </div>
+    </div>
+
+    <div class="portrait">
+      <div class="portrait-frame">
+        <!-- Platzhalter: hier später <img src="virgil.jpg" alt="Virgil Pietrar"> einsetzen -->
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Platzhalter für das Portrait von Virgil Pietrar">
+          <defs>
+            <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27464B"/><stop offset="1" stop-color="#132629"/></linearGradient>
+            <radialGradient id="pl" cx=".5" cy=".35" r=".6"><stop offset="0" stop-color="#D6F36A" stop-opacity=".22"/><stop offset="1" stop-color="#D6F36A" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#pg)"/>
+          <rect width="400" height="500" fill="url(#pl)"/>
+          <circle cx="200" cy="185" r="74" fill="#3B5C61"/>
+          <path d="M52 500c0-100 66-172 148-172s148 72 148 172z" fill="#3B5C61"/>
+        </svg>
+        <div class="portrait-note"><span>Platzhalter · Portraitfoto</span></div>
+        <div class="portrait-name">
+          <strong>Virgil Pietrar</strong>
+          <span>Unternehmer, Gebäudereiniger &amp; Coach</span>
+        </div>
+      </div>
+      <div class="float-card fc-1" aria-hidden="true">
+        <span class="ico"><svg class="i"><use href="#i-home"/></svg></span>
+        <span><b>Eigener Betrieb</b>Praxis statt Theorie</span>
+      </div>
+      <button class="float-card fc-2" data-book="erstgespraech" aria-label="Nächsten freien Termin für das Erstgespräch buchen">
+        <span class="ico"><svg class="i"><use href="#i-cal"/></svg></span>
+        <span><b id="nextSlot">Nächster Termin</b>frei für dein Erstgespräch</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="stat"><b>&gt;1,3 Mio. €</b><span>Umsatz im eigenen Reinigungsbetrieb aufgebaut</span></div>
+      <div class="stat"><b>4 J. &amp; 8 M.</b><span>Unternehmerweg – jeden Fehler selbst gemacht</span></div>
+      <div class="stat"><b>1:1</b><span>Persönliche Begleitung statt Massenkurs</span></div>
+      <div class="stat"><b>100 %</b><span>Fokus auf die Gebäudereinigung</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEME ================= -->
+<section class="section" aria-labelledby="pain-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Kommt dir das bekannt vor?</span>
+        <h2 id="pain-title">Du arbeitest hart. <em>Aber es bleibt zu wenig hängen.</em></h2>
+      </div>
+      <p>Die meisten Inhaber von Gebäudereinigungen haben kein Auftragsproblem – sondern ein Problem mit Kalkulation, Personal und Strukturen.</p>
+    </div>
+    <div class="pain-grid">
+      <article class="pain reveal"><span class="num">01</span><h3>Viel Umsatz. Zu wenig Gewinn.</h3><p>Die Objekte sind voll, aber am Monatsende bleibt kaum etwas übrig.</p></article>
+      <article class="pain reveal"><span class="num">02</span><h3>Mitarbeiter kommen – und gehen.</h3><p>Du suchst ständig Personal und stehst am Ende doch selbst im Objekt.</p></article>
+      <article class="pain reveal"><span class="num">03</span><h3>Ohne dich läuft nichts.</h3><p>Jede Entscheidung, jede Reklamation, jeder Ausfall landet bei dir.</p></article>
+      <article class="pain reveal"><span class="num">04</span><h3>Preise aus dem Bauch heraus.</h3><p>Du kalkulierst nach Gefühl – und traust dich nicht, deine Preise zu erhöhen.</p></article>
+      <article class="pain reveal"><span class="num">05</span><h3>Aufträge nur über Empfehlung.</h3><p>Neue Kunden kommen zufällig. Planbares Wachstum sieht anders aus.</p></article>
+      <article class="pain reveal"><span class="num">06</span><h3>Du willst wachsen – aber wo anfangen?</h3><p>Zu viele Baustellen gleichzeitig. Dir fehlt ein klarer Plan.</p></article>
+    </div>
+    <div class="bridge reveal">
+      <p>Ich kenne diese Probleme. <em>Weil ich den Weg selbst gegangen bin.</em></p>
+      <a href="#ueber-mich" class="btn btn-dark">Meine Geschichte <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ÜBER MICH ================= -->
+<section class="section" id="ueber-mich" aria-labelledby="about-title" style="padding-top:0">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">Über mich</span>
+      <h2 id="about-title">Kein Berater aus dem Lehrbuch. <em>Ein Unternehmer aus der Praxis.</em></h2>
+      <p>Ich kenne die Gebäudereinigung nicht aus Präsentationen. Ich führe selbst einen Reinigungsbetrieb – mit allem, was dazugehört: Krankmeldungen am Montagmorgen, knapp kalkulierte Objekte, Kunden, die beim Preis drücken.</p>
+      <p>Genau diese Erfahrung gebe ich weiter. Ehrlich, direkt und so, dass du es am nächsten Tag in deinem Betrieb umsetzen kannst.</p>
+      <div class="signature">
+        <span class="avatar" aria-hidden="true">VP</span>
+        <div><b>Virgil Pietrar</b><span>Gründer VB Medienkonzepte</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="compare" role="table" aria-label="Klassische Agentur im Vergleich zur Zusammenarbeit mit mir">
+        <div class="compare-head" role="row"><div role="columnheader">Klassische Agentur</div><div role="columnheader">Mit mir</div></div>
+        <div class="compare-row" role="row"><div role="cell">Pakete von der Stange</div><div role="cell"><svg class="i"><use href="#i-check"/></svg>Ein Plan für deinen Betrieb</div></div>
+        <div class="compare-row" role="row"><div role="cell">Wechselnde Ansprechpartner</div><div role="cell"><svg class="i"><use href="#i-check"/></svg>Ein fester Partner – ich persönlich</div></div>
+        <div class="compare-row" role="row"><div role="cell">Theorie &amp; Buzzwords</div><div role="cell"><svg class="i"><use href="#i-check"/></svg>Im eigenen Betrieb erprobt</div></div>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="ico"><svg class="i"><use href="#i-euro"/></svg></span><h4>Gewinn</h4><p>Kalkulation, Preise, Marge</p></div>
+        <div class="pillar"><span class="ico"><svg class="i"><use href="#i-users"/></svg></span><h4>Mitarbeiter</h4><p>Recruiting, Führung, Bindung</p></div>
+        <div class="pillar"><span class="ico"><svg class="i"><use href="#i-layers"/></svg></span><h4>Struktur</h4><p>Prozesse, Organisation, Kundengewinnung</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COACHING ================= -->
+<section class="section" id="coaching" aria-labelledby="coaching-title" style="background:#ECE9E0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Coaching</span>
+        <h2 id="coaching-title">Direkt online buchen. <em>Sofort loslegen.</em></h2>
+      </div>
+      <p>Wähle dein Format, such dir einen freien Termin aus und bezahle bequem online. Kein E-Mail-Ping-Pong, keine Wartezeit.</p>
+    </div>
+
+    <div class="offer-grid">
+      <article class="offer reveal">
+        <h3>Erstgespräch</h3>
+        <div class="meta"><span><svg class="i"><use href="#i-clock"/></svg>30 Min.</span><span><svg class="i"><use href="#i-video"/></svg>Video-Call</span></div>
+        <div class="price"><b>0 €</b><small>kostenlos &amp; unverbindlich</small></div>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Kurze Analyse deiner aktuellen Situation</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Deine größten Hebel für mehr Gewinn</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Ehrliche Einschätzung, ob Coaching passt</li>
+        </ul>
+        <button class="btn btn-outline btn-block" data-book="erstgespraech">Termin wählen</button>
+      </article>
+
+      <article class="offer featured reveal">
+        <span class="tag">Beliebt</span>
+        <h3>Strategie-Session</h3>
+        <div class="meta"><span><svg class="i"><use href="#i-clock"/></svg>90 Min.</span><span><svg class="i"><use href="#i-video"/></svg>1:1 per Video</span></div>
+        <div class="price"><b>390 €</b><small>einmalig, zzgl. MwSt.</small></div>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Preis- &amp; Kalkulations-Check deiner Objekte</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Konkreter 90-Tage-Plan für deinen Betrieb</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Aufzeichnung &amp; schriftliche Zusammenfassung</li>
+          <li><svg class="i"><use href="#i-check"/></svg>14 Tage Support per WhatsApp</li>
+        </ul>
+        <button class="btn btn-lime btn-block" data-book="strategie">Jetzt buchen &amp; bezahlen <svg class="i"><use href="#i-arrow"/></svg></button>
+      </article>
+
+      <article class="offer reveal">
+        <h3>3-Monats-Begleitung</h3>
+        <div class="meta"><span><svg class="i"><use href="#i-cal"/></svg>6 × 1:1-Sessions</span><span><svg class="i"><use href="#i-chat"/></svg>Direktdraht</span></div>
+        <div class="price"><b>1.490 €</b><small>pro Monat, zzgl. MwSt.</small></div>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Gemeinsame Umsetzung statt nur Beratung</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Vorlagen: Kalkulation, Verträge, Onboarding</li>
+          <li><svg class="i"><use href="#i-check"/></svg>WhatsApp-Direktdraht zu mir</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Voller Zugang zur VBM Akademie</li>
+        </ul>
+        <button class="btn btn-dark btn-block" data-book="begleitung">Platz sichern</button>
+      </article>
+    </div>
+
+    <div class="pay-row reveal">
+      <span class="lock"><svg class="i"><use href="#i-lock"/></svg>Sichere Zahlung über</span>
+      <span class="chip">VISA</span><span class="chip">Mastercard</span><span class="chip">PayPal</span><span class="chip">Apple Pay</span><span class="chip">Klarna</span><span class="chip">SEPA</span>
+    </div>
+    <p class="demo-hint">Alle Preise sind Beispielwerte für diesen Entwurf.</p>
+  </div>
+</section>
+
+<!-- ================= AKADEMIE ================= -->
+<section class="section section-dark" id="akademie" aria-labelledby="academy-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">VBM Akademie</span>
+        <h2 id="academy-title">Praxiswissen zum <em>Sofort-Umsetzen.</em></h2>
+      </div>
+      <p>Vorlagen, Leitfäden und Checklisten aus meinem eigenen Betrieb – online kaufen und direkt herunterladen.</p>
+    </div>
+
+    <div class="product-grid">
+      <article class="product reveal">
+        <div class="cover cov-lime"><small>VBM Akademie</small><span class="cov-ico"><svg class="i"><use href="#i-sheet"/></svg></span><strong>Kalkulations-Kit</strong></div>
+        <div class="product-body">
+          <span class="ptype">Excel-Vorlage + Video</span>
+          <h3>Kalkulations-Kit Gebäudereinigung</h3>
+          <p>Objekte in 10 Minuten sauber kalkulieren – inkl. Zuschläge &amp; Marge.</p>
+          <div class="product-foot"><b>49 €</b><button class="btn btn-lime" data-add="kalkulation">In den Warenkorb</button></div>
+        </div>
+      </article>
+      <article class="product reveal">
+        <div class="cover cov-teal"><small>VBM Akademie</small><span class="cov-ico"><svg class="i"><use href="#i-users"/></svg></span><strong>Recruiting-Playbook</strong></div>
+        <div class="product-body">
+          <span class="ptype">E-Book · 60 Seiten</span>
+          <h3>Recruiting-Playbook</h3>
+          <p>So findest du zuverlässige Reinigungskräfte – und hältst sie.</p>
+          <div class="product-foot"><b>29 €</b><button class="btn btn-lime" data-add="recruiting">In den Warenkorb</button></div>
+        </div>
+      </article>
+      <article class="product reveal">
+        <div class="cover cov-sand"><small>VBM Akademie</small><span class="cov-ico"><svg class="i"><use href="#i-doc"/></svg></span><strong>Angebots-Vorlagen</strong></div>
+        <div class="product-body">
+          <span class="ptype">Vorlagen-Paket</span>
+          <h3>Angebots- &amp; Vertragsvorlagen</h3>
+          <p>Professionelle Angebote, die überzeugen – sofort einsetzbar.</p>
+          <div class="product-foot"><b>39 €</b><button class="btn btn-lime" data-add="vorlagen">In den Warenkorb</button></div>
+        </div>
+      </article>
+      <article class="product reveal">
+        <div class="cover cov-white"><small>VBM Akademie</small><span class="cov-ico"><svg class="i"><use href="#i-list"/></svg></span><strong>Onboarding-Checkliste</strong></div>
+        <div class="product-body">
+          <span class="ptype">PDF · Gratis</span>
+          <h3>Onboarding-Checkliste</h3>
+          <p>Neue Mitarbeiter in der ersten Woche richtig einarbeiten.</p>
+          <div class="product-foot"><b>Gratis</b><button class="btn btn-ghost" data-add="onboarding"><svg class="i"><use href="#i-download"/></svg>Herunterladen</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABLAUF ================= -->
+<section class="section" id="ablauf" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">So arbeiten wir</span>
+        <h2 id="process-title">Drei Schritte zu einem Betrieb, <em>der wächst.</em></h2>
+      </div>
+      <p>Kein Standardprogramm. Dein Unternehmen, deine Herausforderungen – unser gemeinsamer Plan.</p>
+    </div>
+    <div class="steps-grid">
+      <article class="step reveal"><span class="n">01</span><h3>Verstehen</h3><p>Wir schauen uns Zahlen, Team und Abläufe an. Du bekommst ein ehrliches Bild, wo dein Geld verloren geht.</p></article>
+      <article class="step reveal"><span class="n">02</span><h3>Verändern</h3><p>Wir setzen die größten Hebel zuerst um – Preise, Prozesse, Personal. Schritt für Schritt, mit Vorlagen aus der Praxis.</p></article>
+      <article class="step reveal"><span class="n">03</span><h3>Wachsen</h3><p>Mit klaren Strukturen und einem Team, auf das du dich verlassen kannst, wächst du planbar – ohne dich zu verbrennen.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="container faq-grid">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Häufige <em>Fragen.</em></h2>
+      </div>
+    </div>
+    <div class="faq-list reveal">
+      <details><summary>Für wen ist das Coaching gedacht?<span class="plus"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Für Inhaber von Gebäudereinigungen – vom Solo-Start bis zum Betrieb mit 50+ Mitarbeitern –, die profitabler arbeiten und sich selbst aus dem Tagesgeschäft lösen wollen.</p></details>
+      <details><summary>Wie funktionieren Buchung und Bezahlung?<span class="plus"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Du wählst dein Format, einen freien Termin und bezahlst direkt online per Karte, PayPal, Apple Pay, Klarna oder SEPA. Die Bestätigung mit Kalendereinladung und Rechnung kommt sofort per E-Mail.</p></details>
+      <details><summary>Bekomme ich eine Rechnung mit ausgewiesener MwSt.?<span class="plus"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Ja. Nach jeder Zahlung erhältst du automatisch eine ordnungsgemäße Rechnung für deine Buchhaltung.</p></details>
+      <details><summary>Kann ich einen Termin verschieben?<span class="plus"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Bis 24 Stunden vorher kannst du deinen Termin über den Link in deiner Bestätigungs-E-Mail kostenlos verschieben.</p></details>
+      <details><summary>Wann erhalte ich Zugriff auf digitale Produkte?<span class="plus"><svg class="i"><use href="#i-plus"/></svg></span></summary><p>Sofort nach der Zahlung – du bekommst den Download-Link direkt auf der Bestätigungsseite und per E-Mail.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="container" aria-labelledby="cta-title">
+  <div class="cta reveal">
+    <div style="position:relative;z-index:1">
+      <h2 id="cta-title">Du musst nicht jeden Fehler <em>selbst machen.</em></h2>
+      <p>Lass uns in 30 Minuten herausfinden, wo in deinem Betrieb der größte Hebel liegt. Kostenlos und unverbindlich.</p>
+    </div>
+    <div class="cta-actions">
+      <button class="btn btn-dark" data-book="erstgespraech">Erstgespräch buchen <svg class="i"><use href="#i-arrow"/></svg></button>
+      <a class="btn btn-outline" href="https://wa.me/4917682336435" target="_blank" rel="noopener"><svg class="i"><use href="#i-chat"/></svg>WhatsApp schreiben</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true">VBM</span><span class="brand-text"><strong>Virgil Pietrar</strong><span>VB Medienkonzepte</span></span></a>
+        <p>Coaching &amp; Praxiswissen für Inhaber von Gebäudereinigungen.</p>
+      </div>
+      <div>
+        <h4>Angebot</h4>
+        <ul><li><a href="#coaching">1:1-Coaching</a></li><li><a href="#akademie">VBM Akademie</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li>VB Medienkonzepte GmbH</li><li>Amalienstr. 58, 90763 Fürth</li><li><a href="mailto:info@vb-medienkonzepte.de">info@vb-medienkonzepte.de</a></li></ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">AGB</a></li><li><a href="#">Widerrufsbelehrung</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> VB Medienkonzepte GmbH</span>
+      <span>Designentwurf – nicht die finale Website</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= BOOKING DIALOG ================= -->
+<dialog class="modal" id="booking" aria-labelledby="bk-title">
+  <div class="modal-head">
+    <div>
+      <span class="eyebrow">Online buchen</span>
+      <h3 id="bk-title">Strategie-Session</h3>
+      <p class="bk-meta" id="bk-meta"></p>
+    </div>
+    <button class="close-btn" data-close aria-label="Schließen"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <ol class="stepper" id="stepper">
+    <li class="active">Termin</li><li>Deine Daten</li><li id="step3label">Zahlung</li>
+  </ol>
+  <div class="modal-body">
+    <section data-step="1">
+      <p class="label" id="days-label">Tag wählen</p>
+      <div class="days" id="days" role="group" aria-labelledby="days-label"></div>
+      <p class="label" id="slots-label">Uhrzeit</p>
+      <div class="slots" id="slots" role="group" aria-labelledby="slots-label"></div>
+      <p class="tz"><svg class="i"><use href="#i-clock"/></svg>Alle Zeiten in deutscher Zeit (MEZ/MESZ)</p>
+    </section>
+
+    <section data-step="2" hidden>
+      <form id="bk-form" class="form-grid" novalidate>
+        <div class="field"><label for="f-name">Name *</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-firma">Firma</label><input id="f-firma" name="firma" autocomplete="organization"></div>
+        <div class="field"><label for="f-mail">E-Mail *</label><input id="f-mail" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+        <div class="field full"><label for="f-size">Wie viele Mitarbeiter hast du?</label>
+          <select id="f-size" name="size"><option>1–5</option><option selected>6–20</option><option>21–50</option><option>über 50</option></select>
+        </div>
+        <div class="field full"><label for="f-msg">Worum soll es gehen? (optional)</label><textarea id="f-msg" name="msg" rows="3" placeholder="z. B. Kalkulation, Mitarbeitersuche, Preiserhöhung …"></textarea></div>
+      </form>
+    </section>
+
+    <section data-step="3" hidden>
+      <div class="summary" id="bk-summary"></div>
+      <div id="pay-wrap">
+        <p class="label" id="pay-label">Zahlungsart</p>
+        <div class="pay-options" role="radiogroup" aria-labelledby="pay-label">
+          <div class="pay-opt"><input type="radio" name="pay" id="p-card" value="Kreditkarte" checked><label for="p-card">Kreditkarte</label></div>
+          <div class="pay-opt"><input type="radio" name="pay" id="p-pp" value="PayPal"><label for="p-pp">PayPal</label></div>
+          <div class="pay-opt"><input type="radio" name="pay" id="p-ap" value="Apple Pay / Google Pay"><label for="p-ap">Apple / Google Pay</label></div>
+          <div class="pay-opt"><input type="radio" name="pay" id="p-kl" value="Klarna"><label for="p-kl">Klarna</label></div>
+        </div>
+        <p class="secure"><svg class="i"><use href="#i-lock"/></svg>Du wirst zur verschlüsselten Zahlungsseite weitergeleitet. Rechnung kommt automatisch per E-Mail.</p>
+      </div>
+    </section>
+
+    <section data-step="4" hidden>
+      <div class="success">
+        <div class="big-check"><svg class="i"><use href="#i-check"/></svg></div>
+        <h3>Termin bestätigt!</h3>
+        <p id="bk-success-text"></p>
+        <div class="summary" id="bk-success-summary"></div>
+        <p class="demo-note"><b>Demo-Hinweis:</b> In der Live-Version läuft die Zahlung über Stripe/PayPal, der Termin wird automatisch in Virgils Kalender eingetragen (z.&nbsp;B. via Cal.com) und Bestätigung + Rechnung werden per E-Mail verschickt.</p>
+      </div>
+    </section>
+  </div>
+  <div class="modal-foot" id="bk-foot">
+    <button class="btn btn-outline" id="bk-back">Zurück</button>
+    <button class="btn btn-dark" id="bk-next" disabled>Weiter</button>
+  </div>
+</dialog>
+
+<!-- ================= CART DRAWER ================= -->
+<dialog class="drawer" id="cart" aria-labelledby="cart-title">
+  <div class="modal-head">
+    <div><span class="eyebrow">VBM Akademie</span><h3 id="cart-title">Dein Warenkorb</h3></div>
+    <button class="close-btn" data-close aria-label="Warenkorb schließen"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="modal-body" id="cart-body"></div>
+  <div class="cart-foot" id="cart-foot"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg class="i"><use href="#i-check"/></svg><span></span></div>
+
+<script>
+document.documentElement.classList.add('js');
+
+const fmt = n => n === 0 ? 'Kostenlos'
+  : new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n);
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+/* ---------- Header ---------- */
+const header = $('.header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+const nav = $('#nav'), menuBtn = $('#menuBtn');
+menuBtn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+});
+$$('a', nav).forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
+$('#year').textContent = new Date().getFullYear();
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg){
+  const t = $('#toast');
+  $('span', t).textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ---------- Reveal on scroll ---------- */
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  $$('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(el); });
+} else {
+  $$('.reveal').forEach(el => el.classList.add('in'));
+}
+
+/* ---------- Termine (Demo-Daten) ---------- */
+const TIMES = ['08:30','10:00','11:30','13:30','15:00','16:30','18:00'];
+function upcomingDays(n = 10){
+  const out = [], d = new Date();
+  d.setHours(0,0,0,0);
+  while (out.length < n) {
+    d.setDate(d.getDate() + 1);
+    if (d.getDay() !== 0 && d.getDay() !== 6) out.push(new Date(d));
+  }
+  return out;
+}
+function slotsFor(d){
+  const seed = d.getDate() * 31 + d.getMonth() * 7;
+  return TIMES.filter((_, i) => (seed + i * 13) % 5 > 1);
+}
+const dayLong = d => d.toLocaleDateString('de-DE', {weekday:'long', day:'numeric', month:'long'});
+const dayShort = d => d.toLocaleDateString('de-DE', {weekday:'short', day:'2-digit', month:'2-digit'});
+
+// Nächster freier Termin im Hero
+(() => {
+  const d = upcomingDays(5).find(x => slotsFor(x).length);
+  if (d) $('#nextSlot').textContent = `${dayShort(d)} · ${slotsFor(d)[0]}`;
+})();
+
+/* ---------- Buchung ---------- */
+const PACKAGES = {
+  erstgespraech: {name:'Kostenloses Erstgespräch', meta:'30 Min. · Video-Call', price:0},
+  strategie:     {name:'Strategie-Session', meta:'90 Min. · 1:1 per Video', price:390},
+  begleitung:    {name:'3-Monats-Begleitung', meta:'Kick-off-Session · 60 Min. · 1. Monatsrate', price:1490},
+};
+const dlg = $('#booking');
+const bk = {pkg:null, step:1, day:null, time:null, run:0};
+const nextBtn = $('#bk-next'), backBtn = $('#bk-back');
+
+function openBooking(key){
+  Object.assign(bk, {pkg:key, step:1, day:null, time:null, run:bk.run + 1});
+  const p = PACKAGES[key];
+  $('#bk-title').textContent = p.name;
+  $('#bk-meta').textContent = `${p.meta} · ${p.price ? fmt(p.price) + ' zzgl. MwSt.' : 'kostenlos'}`;
+  $('#step3label').textContent = p.price ? 'Zahlung' : 'Bestätigen';
+  $('#bk-form').reset();
+  renderDays();
+  renderSlots();
+  showStep(1);
+  dlg.showModal();
+}
+$$('[data-book]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); openBooking(b.dataset.book); }));
+
+function renderDays(){
+  const wrap = $('#days');
+  wrap.innerHTML = '';
+  upcomingDays().forEach(d => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'day';
+    b.setAttribute('aria-pressed', 'false');
+    b.setAttribute('aria-label', dayLong(d));
+    b.innerHTML = `<small>${d.toLocaleDateString('de-DE',{weekday:'short'}).replace('.','')}</small><b>${d.getDate()}</b><span>${d.toLocaleDateString('de-DE',{month:'short'})}</span>`;
+    b.addEventListener('click', () => {
+      bk.day = d; bk.time = null;
+      $$('.day', wrap).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      renderSlots();
+      updateNav();
+    });
+    wrap.append(b);
+  });
+}
+function renderSlots(){
+  const wrap = $('#slots');
+  wrap.innerHTML = '';
+  if (!bk.day) { wrap.innerHTML = '<p class="slots-empty">Bitte zuerst einen Tag auswählen.</p>'; return; }
+  slotsFor(bk.day).forEach(t => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'slot';
+    b.textContent = t;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => {
+      bk.time = t;
+      $$('.slot', wrap).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      updateNav();
+    });
+    wrap.append(b);
+  });
+}
+function summaryHTML(){
+  const p = PACKAGES[bk.pkg];
+  return `
+    <div class="summary-row"><span>Format</span><b>${p.name}</b></div>
+    <div class="summary-row"><span>Termin</span><b>${dayLong(bk.day)}, ${bk.time} Uhr</b></div>
+    <div class="summary-row"><span>Ort</span><b>Video-Call (Link per E-Mail)</b></div>
+    ${p.price ? `<div class="summary-row"><span>MwSt. (19 %)</span><b>${new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(p.price * .19)}</b></div>` : ''}
+    <div class="summary-row total"><span>Gesamt</span><b>${p.price ? new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(p.price * 1.19) : 'Kostenlos'}</b></div>`;
+}
+function showStep(n){
+  bk.step = n;
+  $$('[data-step]', dlg).forEach(s => s.hidden = Number(s.dataset.step) !== n);
+  $$('#stepper li').forEach((li, i) => {
+    li.classList.toggle('active', i + 1 === n);
+    li.classList.toggle('done', i + 1 < n || n === 4);
+  });
+  const p = PACKAGES[bk.pkg];
+  if (n === 3) {
+    $('#bk-summary').innerHTML = summaryHTML();
+    $('#pay-wrap').hidden = !p.price;
+  }
+  if (n === 4) {
+    const name = $('#f-name').value.trim().split(' ')[0];
+    $('#bk-success-text').textContent = `Danke, ${name}! Die Bestätigung mit Kalendereinladung${p.price ? ' und Rechnung' : ''} ist unterwegs an ${$('#f-mail').value.trim()}.`;
+    $('#bk-success-summary').innerHTML = summaryHTML();
+  }
+  backBtn.hidden = n === 4;
+  backBtn.style.visibility = n === 1 ? 'hidden' : 'visible';
+  nextBtn.textContent = n === 3 ? (p.price ? `Jetzt ${new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(p.price * 1.19)} bezahlen` : 'Termin verbindlich buchen')
+                      : n === 4 ? 'Fertig' : 'Weiter';
+  updateNav();
+  $('.modal-body', dlg).scrollTop = 0;
+}
+function updateNav(){
+  nextBtn.disabled = bk.step === 1 && !(bk.day && bk.time);
+}
+nextBtn.addEventListener('click', () => {
+  if (bk.step === 1) return showStep(2);
+  if (bk.step === 2) {
+    const form = $('#bk-form');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    return showStep(3);
+  }
+  if (bk.step === 3) {
+    const run = ++bk.run;
+    nextBtn.disabled = true;
+    nextBtn.innerHTML = '<span class="spinner"></span>Wird verarbeitet …';
+    setTimeout(() => { if (run === bk.run && dlg.open) showStep(4); }, 1100);
+    return;
+  }
+  dlg.close();
+});
+backBtn.addEventListener('click', () => bk.step > 1 && showStep(bk.step - 1));
+
+/* ---------- Dialoge schließen (X + Klick auf Hintergrund) ---------- */
+$$('dialog').forEach(d => {
+  $$('[data-close]', d).forEach(b => b.addEventListener('click', () => d.close()));
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+});
+
+/* ---------- Warenkorb ---------- */
+const PRODUCTS = {
+  kalkulation: {name:'Kalkulations-Kit Gebäudereinigung', type:'Excel-Vorlage + Video', price:49, color:'var(--lime)'},
+  recruiting:  {name:'Recruiting-Playbook', type:'E-Book', price:29, color:'#1F7F77'},
+  vorlagen:    {name:'Angebots- & Vertragsvorlagen', type:'Vorlagen-Paket', price:39, color:'var(--sand)'},
+  onboarding:  {name:'Onboarding-Checkliste', type:'PDF', price:0},
+};
+const cart = [];
+const cartDlg = $('#cart');
+
+function syncCart(){
+  const badge = $('#cartCount');
+  badge.textContent = cart.length;
+  badge.hidden = !cart.length;
+  $('#cartBtn').setAttribute('aria-label', `Warenkorb öffnen (${cart.length} Artikel)`);
+  $$('[data-add]').forEach(b => {
+    const id = b.dataset.add;
+    if (!PRODUCTS[id].price) return;
+    const inCart = cart.includes(id);
+    b.classList.toggle('added', inCart);
+    b.innerHTML = inCart ? '<svg class="i"><use href="#i-check"/></svg>Im Warenkorb' : 'In den Warenkorb';
+  });
+  renderCart();
+}
+function renderCart(done = false){
+  const body = $('#cart-body'), foot = $('#cart-foot');
+  if (done) {
+    body.innerHTML = `<div class="success"><div class="big-check"><svg class="i"><use href="#i-check"/></svg></div><h3>Vielen Dank!</h3><p>Deine Downloads stehen sofort bereit – der Link ist auch per E-Mail unterwegs.</p><p class="demo-note"><b>Demo-Hinweis:</b> In der Live-Version z. B. über Stripe Checkout oder Digistore24 mit automatischer Auslieferung &amp; Rechnung.</p></div>`;
+    foot.innerHTML = '<button class="btn btn-dark btn-block" data-close-cart>Weiter stöbern</button>';
+    $('[data-close-cart]', foot).addEventListener('click', () => cartDlg.close());
+    return;
+  }
+  if (!cart.length) {
+    body.innerHTML = '<div class="cart-empty"><svg class="i"><use href="#i-cart"/></svg>Dein Warenkorb ist noch leer.</div>';
+    foot.innerHTML = '<a href="#akademie" class="btn btn-dark btn-block" data-close-cart>Zur Akademie</a>';
+    $('[data-close-cart]', foot).addEventListener('click', () => cartDlg.close());
+    return;
+  }
+  body.innerHTML = cart.map(id => {
+    const p = PRODUCTS[id];
+    return `<div class="cart-item"><span class="cart-thumb" style="background:${p.color}"></span><div><b>${p.name}</b><span>${p.type} · Sofort-Download</span></div><div style="flex:none;text-align:right"><b>${fmt(p.price)}</b><button class="rm" data-rm="${id}">Entfernen</button></div></div>`;
+  }).join('');
+  $$('[data-rm]', body).forEach(b => b.addEventListener('click', () => { cart.splice(cart.indexOf(b.dataset.rm), 1); syncCart(); }));
+  const total = cart.reduce((s, id) => s + PRODUCTS[id].price, 0);
+  foot.innerHTML = `<div class="cart-total"><span>Gesamt</span><b>${fmt(total)}</b></div><small>inkl. MwSt. · Sofortiger Zugriff nach Zahlung</small><button class="btn btn-lime btn-block" id="checkout"><svg class="i"><use href="#i-lock"/></svg>Sicher zur Kasse</button>`;
+  $('#checkout').addEventListener('click', e => {
+    const b = e.currentTarget;
+    b.disabled = true;
+    b.innerHTML = '<span class="spinner"></span>Wird verarbeitet …';
+    setTimeout(() => { cart.length = 0; syncCart(); renderCart(true); }, 1100);
+  });
+}
+$$('[data-add]').forEach(b => b.addEventListener('click', () => {
+  const id = b.dataset.add, p = PRODUCTS[id];
+  if (!p.price) return toast('Download-Link wurde per E-Mail verschickt (Demo)');
+  if (cart.includes(id)) { renderCart(); cartDlg.showModal(); return; }
+  cart.push(id);
+  syncCart();
+  toast(`„${p.name}“ liegt im Warenkorb`);
+}));
+$('#cartBtn').addEventListener('click', () => { renderCart(); cartDlg.showModal(); });
+syncCart();
+</script>
+</body>
+</html>
