@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muster Gebäudereinigung · Sauberkeit zum Festpreis</title>
+<meta name="description" content="Vorlage einer Webseite für Gebäudereinigungen: Angebotsrechner für mehr Aufträge und Schnellbewerbung für mehr Fachkräfte.">
+<!-- Vorlage / Demo: nicht indexieren -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2A47; --navy-2:#153A5E; --navy-3:#1E4A74;
+  --aqua:#16B89A; --aqua-2:#0F9C82; --aqua-soft:#E2F6F1;
+  --bg:#F4F8FB; --card:#FFFFFF; --line:#DCE5EE; --line-dark:rgba(255,255,255,.14);
+  --text:#0E2A47; --muted:#5A6B7D; --muted-dark:#A9BCCE;
+  --radius:20px; --radius-sm:12px;
+  --shadow:0 24px 60px -30px rgba(14,42,71,.35);
+  --font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;letter-spacing:-.025em;font-weight:800;line-height:1.1}
+p{margin:0}
+.container{width:min(1180px,100% - 32px);margin-inline:auto}
+.i{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.45em;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:.98rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid rgba(22,184,154,.55);outline-offset:3px}
+.btn-aqua{background:var(--aqua);color:#fff}
+.btn-aqua:hover{background:var(--aqua-2);box-shadow:0 14px 30px -14px rgba(22,184,154,.8)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-3)}
+.btn-line{background:#fff;border-color:var(--line);color:var(--navy)}
+.btn-line:hover{border-color:var(--navy)}
+.btn-block{width:100%}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* Note + header */
+.note-bar{background:var(--navy);color:#CFE0EF;font-size:.8rem;font-weight:600;text-align:center;padding:.5em 16px}
+.note-bar a{color:#7FE3CF}
+.header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;gap:28px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--aqua);color:#fff;display:grid;place-items:center}
+.logo-mark .i{width:22px;height:22px}
+.logo b{display:block;font-size:1.05rem;line-height:1.1}
+.logo span{display:block;font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-weight:600;font-size:.93rem;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--navy)}
+.phone{display:inline-flex;align-items:center;gap:.5em;text-decoration:none;font-weight:700;font-size:.93rem}
+.phone .i{color:var(--aqua)}
+.header .btn{padding:.75em 1.15em;font-size:.9rem}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;place-items:center;cursor:pointer}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,6vw,80px) 0 clamp(56px,7vw,96px);background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+.hero::before{content:"";position:absolute;width:680px;height:680px;right:-200px;top:-240px;border-radius:50%;background:radial-gradient(closest-side,rgba(22,184,154,.16),transparent)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:.55em;padding:.45em .9em;border-radius:999px;background:var(--aqua-soft);color:var(--aqua-2);font-weight:700;font-size:.84rem}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);margin:20px 0 20px;letter-spacing:-.035em}
+.hero h1 span{color:var(--aqua)}
+.hero .lead{font-size:clamp(1.05rem,1.4vw,1.18rem);color:var(--muted);max-width:33em}
+.hero-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.hero-list li{display:flex;gap:12px;align-items:center;font-weight:600}
+.hero-list .tick{width:26px;height:26px;border-radius:50%;background:var(--aqua);color:#fff;display:grid;place-items:center;flex:none}
+.hero-list .tick .i{width:15px;height:15px;stroke-width:2.6}
+.rating{display:flex;align-items:center;gap:14px;margin-top:32px;font-size:.9rem;color:var(--muted)}
+.stars{display:flex;gap:2px;color:#F5B83D}
+.stars svg{width:18px;height:18px;fill:currentColor}
+
+/* Calculator card */
+.calc{background:var(--card);border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+.calc-head{padding:24px 26px 0}
+.calc-head h2{font-size:1.35rem}
+.calc-head p{color:var(--muted);font-size:.9rem;margin-top:4px}
+.progress{height:6px;border-radius:6px;background:var(--line);margin-top:18px;overflow:hidden}
+.progress span{display:block;height:100%;width:33%;background:var(--aqua);border-radius:6px;transition:width .4s}
+.calc-body{padding:22px 26px 26px}
+.q{font-weight:700;margin-bottom:12px}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.type{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;cursor:pointer;text-align:left;font-weight:700;transition:border-color .2s,background .2s}
+.type .ico{width:40px;height:40px;border-radius:11px;background:var(--bg);display:grid;place-items:center;color:var(--navy);flex:none;transition:background .2s,color .2s}
+.type small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.type:hover{border-color:var(--aqua)}
+.type[aria-pressed="true"]{border-color:var(--aqua);background:var(--aqua-soft)}
+.type[aria-pressed="true"] .ico{background:var(--aqua);color:#fff}
+.area-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.area-row output{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+input[type=range]{width:100%;accent-color:var(--aqua);height:28px;cursor:pointer}
+.range-scale{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-bottom:20px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.seg button{padding:11px 4px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:700;cursor:pointer;font-size:.9rem;line-height:1.2}
+.seg button small{display:block;font-weight:500;font-size:.72rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{border-color:var(--aqua);background:var(--aqua-soft)}
+.estimate{border-radius:16px;background:var(--navy);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.estimate small{display:block;color:var(--muted-dark);font-size:.78rem}
+.estimate b{font-size:1.45rem;letter-spacing:-.02em;white-space:nowrap}
+.estimate .per{font-size:.8rem;color:var(--muted-dark);text-align:right}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.84rem;font-weight:700}
+.field input,.field select{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:.95rem}
+.field input:focus,.field select:focus{outline:none;border-color:var(--aqua);background:#fff}
+.calc-nav{display:flex;gap:10px;margin-top:22px}
+.calc-nav .btn{flex:1}
+.calc-nav .back{flex:0 0 auto}
+.fine{margin-top:12px;font-size:.78rem;color:var(--muted);text-align:center}
+.done{text-align:center;padding:10px 0}
+.done .big{width:72px;height:72px;border-radius:50%;background:var(--aqua);color:#fff;display:grid;place-items:center;margin:0 auto 18px}
+.done .big .i{width:34px;height:34px;stroke-width:2.6}
+.done h3{font-size:1.4rem}
+.done p{color:var(--muted);margin-top:8px}
+.demo-note{margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--bg);font-size:.8rem;color:var(--muted);text-align:left}
+
+/* Trust bar */
+.trust{background:#fff;border-block:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{display:flex;align-items:center;gap:14px;padding:26px 20px;border-left:1px solid var(--line)}
+.trust-item:first-child{border-left:0;padding-left:0}
+.trust-item .ico{width:46px;height:46px;border-radius:14px;background:var(--aqua-soft);color:var(--aqua-2);display:grid;place-items:center;flex:none}
+.trust-item b{display:block;font-size:.98rem}
+.trust-item span{font-size:.84rem;color:var(--muted)}
+
+/* Sections */
+.section{padding:clamp(72px,9vw,120px) 0}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--aqua-2);margin-bottom:14px}
+h2{font-size:clamp(1.9rem,4vw,3rem)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,56px)}
+.head h2{max-width:14em}
+.head p{max-width:28em;color:var(--muted);font-size:1.05rem}
+
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.service{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,box-shadow .25s,border-color .25s;display:flex;flex-direction:column}
+.service:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.service .ico{width:52px;height:52px;border-radius:15px;background:var(--navy);color:#fff;display:grid;place-items:center;margin-bottom:20px}
+.service .ico .i{width:24px;height:24px}
+.service h3{font-size:1.2rem}
+.service p{color:var(--muted);font-size:.95rem;margin-top:8px;flex:1}
+.service a{margin-top:18px;display:inline-flex;align-items:center;gap:.4em;font-weight:700;font-size:.9rem;color:var(--aqua-2);text-decoration:none}
+.service a:hover{gap:.7em}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stepc{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+.stepc .n{font-size:.8rem;font-weight:800;color:var(--aqua-2);letter-spacing:.1em}
+.stepc h3{font-size:1.3rem;margin:12px 0 8px}
+.stepc p{color:var(--muted);font-size:.95rem}
+.stepc .time{display:inline-flex;align-items:center;gap:.4em;margin-top:18px;font-size:.82rem;font-weight:700;padding:.35em .8em;border-radius:999px;background:var(--aqua-soft);color:var(--aqua-2)}
+
+/* Karriere */
+.jobs{background:var(--navy);color:#fff;border-radius:32px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;position:relative;overflow:hidden}
+.jobs::before{content:"";position:absolute;width:520px;height:520px;left:-200px;bottom:-280px;border-radius:50%;background:radial-gradient(closest-side,rgba(22,184,154,.28),transparent)}
+.jobs > *{position:relative}
+.jobs .eyebrow{color:#7FE3CF}
+.jobs h2 span{color:#7FE3CF}
+.jobs .lead{color:var(--muted-dark);font-size:1.08rem;margin-top:16px}
+.perks{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.perks li{display:flex;gap:10px;align-items:center;padding:14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid var(--line-dark);font-weight:600;font-size:.92rem}
+.perks .i{color:#7FE3CF}
+.apply{background:#fff;color:var(--text);border-radius:24px;padding:26px}
+.apply h3{font-size:1.3rem}
+.apply h3 + p{color:var(--muted);font-size:.9rem;margin:4px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:.88rem;cursor:pointer;transition:border-color .2s,background .2s}
+.chip:hover{border-color:var(--aqua)}
+.chip[aria-pressed="true"]{border-color:var(--aqua);background:var(--aqua-soft);color:var(--aqua-2)}
+
+/* FAQ */
+.faq{max-width:820px;margin-inline:auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:10px;padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .i{transition:transform .3s;color:var(--aqua-2)}
+.faq details[open] summary .i{transform:rotate(45deg)}
+.faq details p{padding-bottom:20px;color:var(--muted)}
+
+/* Footer */
+.footer{background:#0A2038;color:var(--muted-dark);padding:64px 0 28px;font-size:.92rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.footer h4{color:#fff;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.footer a{text-decoration:none}
+.footer a:hover{color:#7FE3CF}
+.footer .logo{color:#fff;margin-bottom:14px}
+.footer .logo span{color:var(--muted-dark)}
+.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
+
+/* Mobile sticky CTA */
+.mbar{display:none}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;z-index:100;transform:translate(-50%,calc(100% + 40px));opacity:0;background:var(--navy);color:#fff;padding:14px 20px;border-radius:14px;box-shadow:var(--shadow);font-weight:600;font-size:.92rem;transition:transform .35s,opacity .35s;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+@media (max-width:1020px){
+  .nav,.header .phone{display:none}
+  .menu-btn{display:grid}
+  .nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:6px 16px 18px}
+  .nav.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem;color:var(--navy)}
+  .hero-grid,.jobs{grid-template-columns:minmax(0,1fr)}
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trust-item:nth-child(odd){border-left:0;padding-left:0}
+  .trust-item:nth-child(n+3){border-top:1px solid var(--line)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .header .btn{display:none}
+  .services,.steps{grid-template-columns:minmax(0,1fr)}
+  .trust-grid{grid-template-columns:minmax(0,1fr)}
+  .trust-item{border-left:0;padding:18px 0}
+  .trust-item:nth-child(n+2){border-top:1px solid var(--line)}
+  .types,.fields,.perks{grid-template-columns:minmax(0,1fr)}
+  .calc-head,.calc-body{padding-left:18px;padding-right:18px}
+  .footer-grid{grid-template-columns:1fr}
+  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mbar .btn{padding:.85em 1em}
+  body{padding-bottom:76px}
+  .toast{bottom:92px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 011-1h9a1 1 0 011 1v16M15 9h4a1 1 0 011 1v11M3 21h18M8 8h3M8 12h3M8 16h3"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="1.5"/><path d="M12 3.5v17M4 12h16"/></symbol>
+  <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20h5v-4h4v-4h4V8h5"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+  <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M3 21V9l9-5 9 5v12M7 21v-8h10v8M7 17h10"/></symbol>
+  <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M4 17h16v2H4zM6 17v-3a6 6 0 0112 0v3M10 8.5V6h4v2.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4 3.8-6.5 7.5-6.5s6.7 2.5 7.5 6.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.5 6.2A7 7 0 1017.5 17.8M4 10.5h9M4 13.5h9"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16V11l2-5h10l2 5v5M3.5 16h17v3h-17zM5 11h14"/><circle cx="8" cy="19" r="1"/><circle cx="16" cy="19" r="1"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.5-7.5-10A4.3 4.3 0 0112 7.3 4.3 4.3 0 0119.5 10c0 5.5-7.5 10-7.5 10z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></symbol>
+</svg>
+
+<div class="note-bar">Vorlage · Beispiel-Webseite für Kunden von VB Medienkonzepte — Firma, Zahlen &amp; Inhalte sind fiktiv · <a href="../">← zur VBM-Demo</a></div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="Muster Gebäudereinigung, zum Seitenanfang">
+      <span class="logo-mark"><svg class="i"><use href="#i-spark"/></svg></span>
+      <span><b>Muster</b><span>Gebäudereinigung</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#karriere">Karriere</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="phone" href="tel:0123456789"><svg class="i"><use href="#i-phone"/></svg>0123 456 789</a>
+    <a href="#angebot" class="btn btn-aqua">Angebot anfordern</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker"><svg class="i"><use href="#i-spark"/></svg>Gebäudereinigung in Musterstadt &amp; Umgebung</span>
+      <h1 id="hero-title">Saubere Räume. <span>Zuverlässig.</span> Zum Festpreis.</h1>
+      <p class="lead">Für Büros, Praxen, Wohnanlagen und Gewerbeflächen. Feste Teams, ein persönlicher Ansprechpartner – und Ihr Angebot innerhalb von 24 Stunden.</p>
+      <ul class="hero-list">
+        <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Kostenlose Besichtigung vor Ort</li>
+        <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Transparente Festpreise – keine versteckten Kosten</li>
+        <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Monatlich kündbar, voll versichert</li>
+      </ul>
+      <div class="rating">
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <span>Platz für Google-Bewertungen</span>
+      </div>
+    </div>
+
+    <!-- Angebotsrechner -->
+    <div class="calc" id="angebot" aria-labelledby="calc-title">
+      <div class="calc-head">
+        <h2 id="calc-title">Preis in 60 Sekunden berechnen</h2>
+        <p id="calc-sub">Schritt 1 von 3 · Unverbindlich &amp; kostenlos</p>
+        <div class="progress" aria-hidden="true"><span id="calc-bar"></span></div>
+      </div>
+      <div class="calc-body">
+        <div data-cstep="1">
+          <p class="q" id="q-type">Was sollen wir reinigen?</p>
+          <div class="types" role="group" aria-labelledby="q-type">
+            <button class="type" type="button" data-type="buero" aria-pressed="false"><span class="ico"><svg class="i"><use href="#i-building"/></svg></span><span>Büro<small>Büro- &amp; Verwaltung</small></span></button>
+            <button class="type" type="button" data-type="praxis" aria-pressed="false"><span class="ico"><svg class="i"><use href="#i-cross"/></svg></span><span>Praxis<small>Arzt, Therapie, Kanzlei</small></span></button>
+            <button class="type" type="button" data-type="treppenhaus" aria-pressed="false"><span class="ico"><svg class="i"><use href="#i-stairs"/></svg></span><span>Treppenhaus<small>Wohnanlagen, WEG</small></span></button>
+            <button class="type" type="button" data-type="gewerbe" aria-pressed="false"><span class="ico"><svg class="i"><use href="#i-warehouse"/></svg></span><span>Gewerbe<small>Halle, Lager, Produktion</small></span></button>
+          </div>
+        </div>
+
+        <div data-cstep="2" hidden>
+          <div class="area-row"><label class="q" for="area" style="margin:0">Fläche</label><output id="areaOut" for="area">250 m²</output></div>
+          <input type="range" id="area" min="50" max="3000" step="10" value="250" aria-describedby="areaScale">
+          <div class="range-scale" id="areaScale"><span>50 m²</span><span>3.000 m²</span></div>
+          <p class="q" id="q-freq">Wie oft pro Woche?</p>
+          <div class="seg" role="group" aria-labelledby="q-freq">
+            <button type="button" data-freq="1" aria-pressed="false">1×<small>pro Woche</small></button>
+            <button type="button" data-freq="2" aria-pressed="true">2×<small>pro Woche</small></button>
+            <button type="button" data-freq="3" aria-pressed="false">3×<small>pro Woche</small></button>
+            <button type="button" data-freq="5" aria-pressed="false">5×<small>pro Woche</small></button>
+          </div>
+          <div class="estimate" aria-live="polite">
+            <div><small>Ihr Richtpreis</small><b id="estimate">–</b></div>
+            <div class="per">pro Monat<br>zzgl. MwSt.</div>
+          </div>
+        </div>
+
+        <form data-cstep="3" id="leadForm" hidden novalidate>
+          <p class="q">Wohin dürfen wir Ihr Angebot schicken?</p>
+          <div class="fields">
+            <div class="field"><label for="l-name">Name *</label><input id="l-name" required autocomplete="name"></div>
+            <div class="field"><label for="l-firma">Firma</label><input id="l-firma" autocomplete="organization"></div>
+            <div class="field"><label for="l-tel">Telefon *</label><input id="l-tel" type="tel" required autocomplete="tel"></div>
+            <div class="field"><label for="l-plz">PLZ Objekt *</label><input id="l-plz" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code"></div>
+            <div class="field full"><label for="l-mail">E-Mail *</label><input id="l-mail" type="email" required autocomplete="email"></div>
+          </div>
+        </form>
+
+        <div data-cstep="4" hidden>
+          <div class="done">
+            <div class="big"><svg class="i"><use href="#i-check"/></svg></div>
+            <h3>Anfrage erhalten!</h3>
+            <p id="doneText">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+            <p class="demo-note"><b>Demo-Hinweis:</b> Live landet die Anfrage direkt im E-Mail-Postfach oder CRM des Betriebs – inkl. Objektart, Fläche und Richtpreis. So kommen qualifizierte Anfragen statt Zufallskontakte.</p>
+          </div>
+        </div>
+
+        <div class="calc-nav" id="calcNav">
+          <button class="btn btn-line back" id="cBack" type="button" hidden>Zurück</button>
+          <button class="btn btn-aqua" id="cNext" type="button" disabled>Weiter <svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
+        <p class="fine" id="calcFine">Richtwerte, keine verbindliche Kalkulation. Endpreis nach kostenloser Besichtigung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Unsere Versprechen">
+  <div class="container trust-grid">
+    <div class="trust-item"><span class="ico"><svg class="i"><use href="#i-shield"/></svg></span><div><b>Voll versichert</b><span>Betriebshaftpflicht inklusive</span></div></div>
+    <div class="trust-item"><span class="ico"><svg class="i"><use href="#i-tag"/></svg></span><div><b>Festpreise</b><span>Keine Überraschungen</span></div></div>
+    <div class="trust-item"><span class="ico"><svg class="i"><use href="#i-user"/></svg></span><div><b>Fester Ansprechpartner</b><span>Direkt erreichbar</span></div></div>
+    <div class="trust-item"><span class="ico"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Angebot in 24 h</b><span>Schnell &amp; unkompliziert</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="leistungen" aria-labelledby="svc-title">
+  <div class="container">
+    <div class="head reveal">
+      <div><span class="eyebrow">Leistungen</span><h2 id="svc-title">Alles aus einer Hand – vom Büro bis zur Baustelle.</h2></div>
+      <p>Wir reinigen dort, wo Sauberkeit zählt. Mit geschultem Personal, professionellen Mitteln und festen Abläufen.</p>
+    </div>
+    <div class="services">
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-building"/></svg></span><h3>Unterhaltsreinigung</h3><p>Regelmäßige Reinigung von Büros und Verwaltungsflächen – im Hintergrund, ohne Ihren Betrieb zu stören.</p><a href="#angebot" data-pick="buero">Preis berechnen <svg class="i"><use href="#i-arrow"/></svg></a></article>
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-cross"/></svg></span><h3>Praxisreinigung</h3><p>Hygienisch einwandfrei nach den Anforderungen für Arzt- und Therapiepraxen.</p><a href="#angebot" data-pick="praxis">Preis berechnen <svg class="i"><use href="#i-arrow"/></svg></a></article>
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-stairs"/></svg></span><h3>Treppenhausreinigung</h3><p>Gepflegte Eingänge und Treppenhäuser für Hausverwaltungen und Eigentümergemeinschaften.</p><a href="#angebot" data-pick="treppenhaus">Preis berechnen <svg class="i"><use href="#i-arrow"/></svg></a></article>
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-window"/></svg></span><h3>Glas- &amp; Fensterreinigung</h3><p>Streifenfreie Fenster, Rahmen und Glasfassaden – einmalig oder im festen Turnus.</p><a href="#angebot">Angebot anfordern <svg class="i"><use href="#i-arrow"/></svg></a></article>
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-warehouse"/></svg></span><h3>Industrie &amp; Gewerbe</h3><p>Hallen, Lager- und Produktionsflächen – mit passender Maschinentechnik.</p><a href="#angebot" data-pick="gewerbe">Preis berechnen <svg class="i"><use href="#i-arrow"/></svg></a></article>
+      <article class="service reveal"><span class="ico"><svg class="i"><use href="#i-helmet"/></svg></span><h3>Bauendreinigung</h3><p>Besenrein war gestern: Wir machen Neubau und Sanierung bezugsfertig.</p><a href="#angebot">Angebot anfordern <svg class="i"><use href="#i-arrow"/></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ablauf" aria-labelledby="steps-title" style="padding-top:0">
+  <div class="container">
+    <div class="head reveal">
+      <div><span class="eyebrow">So einfach geht's</span><h2 id="steps-title">In drei Schritten zum sauberen Objekt.</h2></div>
+    </div>
+    <div class="steps">
+      <article class="stepc reveal"><span class="n">SCHRITT 01</span><h3>Anfragen</h3><p>Richtpreis online berechnen oder kurz anrufen. Wir melden uns innerhalb von 24 Stunden.</p><span class="time"><svg class="i"><use href="#i-clock"/></svg>60 Sekunden</span></article>
+      <article class="stepc reveal"><span class="n">SCHRITT 02</span><h3>Besichtigen</h3><p>Wir schauen uns Ihr Objekt kostenlos an und erstellen ein verbindliches Festpreis-Angebot.</p><span class="time"><svg class="i"><use href="#i-cal"/></svg>Kostenlos vor Ort</span></article>
+      <article class="stepc reveal"><span class="n">SCHRITT 03</span><h3>Loslegen</h3><p>Ihr festes Team startet – mit Reinigungsplan, Qualitätskontrollen und direktem Draht zu uns.</p><span class="time"><svg class="i"><use href="#i-spark"/></svg>Start in 7 Tagen</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="karriere" aria-labelledby="jobs-title">
+  <div class="jobs reveal">
+    <div>
+      <span class="eyebrow">Karriere</span>
+      <h2 id="jobs-title">Werde Teil unseres Teams. <span>Bewerbung in 60 Sekunden.</span></h2>
+      <p class="lead">Kein Lebenslauf, kein Anschreiben. Beantworte drei kurze Fragen – wir rufen dich zurück.</p>
+      <ul class="perks">
+        <li><svg class="i"><use href="#i-euro"/></svg>Pünktliche Bezahlung</li>
+        <li><svg class="i"><use href="#i-cal"/></svg>Feste Arbeitszeiten</li>
+        <li><svg class="i"><use href="#i-car"/></svg>Firmenwagen für Objektleiter</li>
+        <li><svg class="i"><use href="#i-heart"/></svg>Wertschätzendes Team</li>
+      </ul>
+    </div>
+    <form class="apply" id="applyForm" novalidate>
+      <div id="applyFields">
+        <h3>Jetzt schnell bewerben</h3>
+        <p>Dauert wirklich nur eine Minute.</p>
+        <p class="q" id="q-job">1. Welche Stelle interessiert dich?</p>
+        <div class="chips" role="group" aria-labelledby="q-job" data-single>
+          <button type="button" class="chip" aria-pressed="false">Minijob</button>
+          <button type="button" class="chip" aria-pressed="true">Teilzeit</button>
+          <button type="button" class="chip" aria-pressed="false">Vollzeit</button>
+          <button type="button" class="chip" aria-pressed="false">Objektleitung</button>
+        </div>
+        <p class="q" id="q-when">2. Wann kannst du arbeiten?</p>
+        <div class="chips" role="group" aria-labelledby="q-when">
+          <button type="button" class="chip" aria-pressed="false">Früh</button>
+          <button type="button" class="chip" aria-pressed="true">Tagsüber</button>
+          <button type="button" class="chip" aria-pressed="false">Abends</button>
+          <button type="button" class="chip" aria-pressed="false">Wochenende</button>
+        </div>
+        <p class="q">3. Wie erreichen wir dich?</p>
+        <div class="fields">
+          <div class="field"><label for="a-name">Vorname *</label><input id="a-name" required autocomplete="given-name"></div>
+          <div class="field"><label for="a-tel">Handynummer *</label><input id="a-tel" type="tel" required autocomplete="tel"></div>
+        </div>
+        <button class="btn btn-aqua btn-block" type="submit" style="margin-top:18px">Bewerbung abschicken <svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="done" id="applyDone" hidden>
+        <div class="big"><svg class="i"><use href="#i-check"/></svg></div>
+        <h3>Danke für deine Bewerbung!</h3>
+        <p id="applyText">Wir rufen dich in den nächsten Tagen zurück.</p>
+        <p class="demo-note"><b>Demo-Hinweis:</b> Live geht die Kurzbewerbung per E-Mail/WhatsApp direkt an den Inhaber – ideal in Kombination mit Recruiting-Kampagnen auf Facebook &amp; Instagram.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="head reveal" style="justify-content:center;text-align:center"><div><span class="eyebrow">FAQ</span><h2 id="faq-title">Häufige Fragen</h2></div></div>
+    <div class="faq reveal">
+      <details><summary>Wie schnell können Sie starten?<svg class="i"><use href="#i-plus"/></svg></summary><p>Nach der Besichtigung und Ihrer Zusage in der Regel innerhalb von 7 Tagen.</p></details>
+      <details><summary>Bringen Sie Reinigungsmittel und Geräte mit?<svg class="i"><use href="#i-plus"/></svg></summary><p>Ja. Alle Mittel, Maschinen und Verbrauchsmaterialien sind im Festpreis enthalten – auf Wunsch auch umweltfreundliche Produkte.</p></details>
+      <details><summary>Wie werden Qualität und Zuverlässigkeit sichergestellt?<svg class="i"><use href="#i-plus"/></svg></summary><p>Feste Teams, dokumentierte Reinigungspläne und regelmäßige Qualitätskontrollen durch Ihre Objektleitung.</p></details>
+      <details><summary>Gibt es eine lange Vertragslaufzeit?<svg class="i"><use href="#i-plus"/></svg></summary><p>Nein. Unsere Verträge sind monatlich kündbar – wir überzeugen durch Leistung, nicht durch Laufzeiten.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo"><span class="logo-mark"><svg class="i"><use href="#i-spark"/></svg></span><span><b>Muster</b><span>Gebäudereinigung</span></span></a>
+        <p>Ihre Gebäudereinigung für Musterstadt und Umgebung.</p>
+      </div>
+      <div><h4>Leistungen</h4><ul><li><a href="#leistungen">Unterhaltsreinigung</a></li><li><a href="#leistungen">Praxisreinigung</a></li><li><a href="#leistungen">Treppenhausreinigung</a></li><li><a href="#leistungen">Glasreinigung</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li>Musterstraße 1, 12345 Musterstadt</li><li><a href="tel:0123456789">0123 456 789</a></li><li><a href="mailto:info@example.com">info@example.com</a></li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#karriere">Karriere</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year">2026</span> Muster Gebäudereinigung</span><span>Vorlage – umgesetzt mit VB Medienkonzepte</span></div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-line" href="tel:0123456789"><svg class="i"><use href="#i-phone"/></svg>Anrufen</a>
+  <a class="btn btn-aqua" href="#angebot">Preis berechnen</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+document.documentElement.classList.add('js');
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+$('#year').textContent = new Date().getFullYear();
+
+/* Navigation */
+const nav = $('#nav'), menuBtn = $('#menuBtn');
+menuBtn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+});
+$$('a', nav).forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }));
+
+/* Reveal */
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  $$('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(el); });
+} else $$('.reveal').forEach(el => el.classList.add('in'));
+
+/* ---------- Angebotsrechner ---------- */
+// Demo-Richtwerte: € pro m² und Reinigung, Mindestpreis pro Einsatz
+const RATES = {buero:0.13, praxis:0.17, treppenhaus:0.15, gewerbe:0.10};
+const TYPE_NAMES = {buero:'Büro', praxis:'Praxis', treppenhaus:'Treppenhaus', gewerbe:'Gewerbe'};
+const MIN_PER_VISIT = 35;
+const calc = {step:1, type:null, area:250, freq:2};
+const eur = n => new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR', maximumFractionDigits:0}).format(n);
+const nextBtn = $('#cNext'), backBtn = $('#cBack');
+
+function estimate(){
+  const perVisit = Math.max(MIN_PER_VISIT, calc.area * RATES[calc.type || 'buero']);
+  const monthly = perVisit * calc.freq * 4.33;
+  const r = n => Math.round(n / 10) * 10;
+  return [r(monthly * .9), r(monthly * 1.1)];
+}
+function renderEstimate(){
+  const [lo, hi] = estimate();
+  $('#estimate').textContent = `ca. ${eur(lo)} – ${eur(hi)}`;
+}
+function showCalc(n){
+  calc.step = n;
+  $$('[data-cstep]').forEach(s => s.hidden = Number(s.dataset.cstep) !== n);
+  $('#calc-bar').style.width = (n >= 4 ? 100 : n * 33.3) + '%';
+  $('#calc-sub').textContent = n >= 4 ? 'Fertig · Wir melden uns bei Ihnen' : `Schritt ${n} von 3 · Unverbindlich & kostenlos`;
+  backBtn.hidden = n === 1 || n === 4;
+  $('#calcNav').hidden = n === 4;
+  $('#calcFine').hidden = n === 4;
+  nextBtn.innerHTML = n === 3 ? 'Angebot anfordern <svg class="i"><use href="#i-arrow"/></svg>' : 'Weiter <svg class="i"><use href="#i-arrow"/></svg>';
+  nextBtn.disabled = n === 1 && !calc.type;
+  if (n === 2) renderEstimate();
+}
+function pickType(t){
+  calc.type = t;
+  $$('[data-type]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.type === t)));
+  nextBtn.disabled = false;
+}
+$$('[data-type]').forEach(b => b.addEventListener('click', () => {
+  pickType(b.dataset.type);
+  setTimeout(() => calc.step === 1 && showCalc(2), 260);
+}));
+$('#area').addEventListener('input', e => {
+  calc.area = Number(e.target.value);
+  $('#areaOut').textContent = calc.area.toLocaleString('de-DE') + ' m²';
+  renderEstimate();
+});
+$$('[data-freq]').forEach(b => b.addEventListener('click', () => {
+  calc.freq = Number(b.dataset.freq);
+  $$('[data-freq]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  renderEstimate();
+}));
+nextBtn.addEventListener('click', () => {
+  if (calc.step < 3) return showCalc(calc.step + 1);
+  const form = $('#leadForm');
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const [lo, hi] = estimate();
+  $('#doneText').textContent = `Danke, ${$('#l-name').value.trim()}! Ihr Richtpreis für ${TYPE_NAMES[calc.type]}, ${calc.area.toLocaleString('de-DE')} m², ${calc.freq}× pro Woche: ${eur(lo)} – ${eur(hi)} / Monat. Wir melden uns innerhalb von 24 Stunden.`;
+  showCalc(4);
+});
+backBtn.addEventListener('click', () => calc.step > 1 && showCalc(calc.step - 1));
+// "Preis berechnen" in den Leistungskarten wählt die Objektart vor
+$$('[data-pick]').forEach(a => a.addEventListener('click', () => { if (calc.step < 4) { pickType(a.dataset.pick); showCalc(2); } }));
+
+/* ---------- Schnellbewerbung ---------- */
+$$('.chips').forEach(group => {
+  const single = group.hasAttribute('data-single');
+  $$('.chip', group).forEach(c => c.addEventListener('click', () => {
+    if (single) $$('.chip', group).forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+    else c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true'));
+  }));
+});
+$('#applyForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  $('#applyText').textContent = `Hallo ${$('#a-name').value.trim()}, wir rufen dich in den nächsten Tagen unter ${$('#a-tel').value.trim()} zurück.`;
+  $('#applyFields').hidden = true;
+  $('#applyDone').hidden = false;
+});
+</script>
+</body>
+</html>
